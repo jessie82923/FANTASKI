@@ -1,0 +1,2 @@
+# FANTASKI
+project as practice
