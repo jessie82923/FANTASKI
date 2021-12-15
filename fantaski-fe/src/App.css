@@ -1,0 +1,31 @@
+:root {
+  --main-blue: #3587b5;
+  --main-red: #ec6855;
+  --main-text-darkblue: #134865;
+  --background-color: #fefcee;
+  --assist-white: #ffffff;
+
+  --font-m: 16px;
+  --font-l: 24px;
+  --font-xl: 36px;
+
+  --font-family-base: "Noto Sans Traditional Chinese, Hobo Std";
+
+  --border-radius: 30px;
+
+  --shadow: 0 0 30 rgba(19, 72, 101, 0.4);
+}
+/* Reset styles */
+html,
+body,
+body * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  background-color: inherit;
+}
+
+body {
+  background-color: #fefcee;
+}

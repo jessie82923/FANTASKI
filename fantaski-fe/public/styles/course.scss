@@ -1,0 +1,962 @@
+//--------------------------------影片--------------------------------//
+.video-wrap {
+  width: 100%;
+  height: 85vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+@media screen and (max-width: 768px) {
+  .video-wrap {
+    height: 60vh;
+  }
+}
+
+//-----------------------------課程通用按鈕-----------------------------//
+.course-buttons {
+  margin-top: 30px;
+  height: 30px;
+}
+.course-buttons a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px;
+  /* transform: translateX(-25px); */
+}
+.course-buttons img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  filter: invert(23%) sepia(10%) saturate(4743%) hue-rotate(163deg)
+    brightness(70%) contrast(89%);
+}
+/* 初體驗hover& 點選後效果 */
+.course-buttons .course0:hover img,
+.course-buttons .course0 .showCourseBtn {
+  filter: invert(45%) sepia(33%) saturate(839%) hue-rotate(81deg)
+    brightness(65%) contrast(88%);
+}
+/* 技能班hover& 點選後效果 */
+.course-buttons .course1:hover img,
+.course-buttons .course1 .showCourseBtn {
+  filter: invert(62%) sepia(56%) saturate(4147%) hue-rotate(324deg)
+    brightness(85%) contrast(108%);
+}
+/* 雪橇車hover & 點選後效果 */
+
+.course-buttons .course2:hover img,
+.course-buttons .course2 .showCourseBtn {
+  filter: brightness(0);
+}
+/* 建冰屋hover& 點選後效果 */
+
+.course-buttons .course3:hover img,
+.course-buttons .course3 .showCourseBtn {
+  filter: invert(45%) sepia(33%) saturate(839%) hue-rotate(81deg)
+    brightness(65%) contrast(88%);
+}
+
+.course-buttons span {
+  font-size: 22px;
+  color: #134865;
+}
+
+@media screen and (max-width: 768px) {
+  .course-buttons span {
+    font-size: 20px;
+  }
+  .course-buttons img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .course-buttons a {
+    margin: 20px;
+  }
+}
+//------------------------------內文標題------------------------------//
+.course-title {
+  font-weight: bolder;
+  text-align: center;
+  margin: 30px 0 10px 0;
+  color: #134865;
+}
+//------------------------------課程介紹------------------------------//
+.skillCourseIntro {
+  text-align: center;
+  color: #134865;
+}
+//------------------------------課程導覽------------------------------//
+.course-map-wrapper {
+  max-width: 800px;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+}
+.course-map-wrapper .decoration-skill {
+  width: 130px;
+  height: 180px;
+  position: absolute;
+  top: -110px;
+  left: -70px;
+}
+.course-map-wrapper .decoration-skill-deer {
+  width: 300px;
+  height: 180px;
+  position: absolute;
+  top: -130px;
+  left: -100px;
+  opacity: 0.3;
+}
+.course-map-wrapper .decoration-skill-igloo {
+  width: 300px;
+  height: 180px;
+  position: absolute;
+  top: -130px;
+  left: -100px;
+  filter: drop-shadow(4px 4px 8px #0987bd);
+}
+.course-map-wrapper .col {
+  cursor: pointer;
+  line-height: 150px;
+  height: 150px;
+  margin: 2px;
+  padding: 0;
+  box-shadow: 2px 2px 3px gray;
+  position: relative;
+  /* 讓旋轉看起來更立體 */
+  perspective: 23rem;
+}
+/* 將圖片與文字面重疊 */
+.course-map-wrapper .col .front,
+.course-map-wrapper .col .back {
+  background: #c9eaf6;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  /* 設定某一面為旋轉-180deg時hidden */
+  backface-visibility: hidden;
+  transition: 0.3s;
+}
+/* 先各給兩面旋轉初始值 */
+.course-map-wrapper .col .front {
+  transform: rotateY(0deg);
+}
+.course-map-wrapper .col .back {
+  font-size: 0;
+  transform: rotateY(-180deg);
+}
+/* 翻轉時 */
+.course-map-wrapper .rotate-effect .front {
+  transition: 0.3s;
+  transform: rotateY(180deg);
+}
+.course-map-wrapper .rotate-effect .back {
+  transition: 0.3s;
+  transform: rotateY(0deg);
+}
+/* hover課程時字跟格子都變大一點 */
+.course-map-wrapper .col:hover {
+  transform: scale(1.01);
+  transition: 0.4s;
+}
+.course-map-wrapper .col:hover .front {
+  transition: 0.2s;
+  font-size: 20px;
+}
+.course-map-wrapper .total-hour-box {
+  /* 偷吃步置中 */
+  line-height: 39px;
+  letter-spacing: 5px;
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  height: 304px;
+  background: #134865;
+  color: white;
+  margin: 3px;
+  box-shadow: 2px 2px 3px gray;
+}
+.course-map-wrapper .three-hour-box {
+  height: 154px;
+  letter-spacing: 3px;
+}
+@media screen and (max-width: 768px) {
+  .course-map-wrapper .decoration-skill,
+  .course-map-wrapper .decoration-skill-deer,
+  .course-map-wrapper .decoration-skill-igloo {
+    display: none;
+  }
+  .course-map-wrapper .total-hour-box {
+    writing-mode: horizontal-tb;
+    text-orientation: inherit;
+    height: 50px;
+    line-height: 50px;
+  }
+  .course-map-wrapper .col {
+    line-height: 75px;
+  }
+}
+
+//------------------------------教練專區------------------------------//
+.coach-wrapper {
+  margin: 0 auto;
+  height: 400px;
+}
+.coach-wrapper {
+  position: relative;
+}
+.coach-wrapper .coach .decoration-skill {
+  position: absolute;
+  top: -30px;
+  right: 40px;
+  width: 100px;
+  height: 150px;
+  transform: rotate(8deg);
+  z-index: 2;
+}
+.coach-shadow {
+  filter: drop-shadow(2px 2px 3px gray);
+  position: relative;
+  z-index: 1;
+}
+/* pointer-events可用來點選下層標籤 -->被選取的教練z-index跑到上層後，svg的部分會遮住下層欲點選的教練2區塊，所以要讓上層教練區可穿透 */
+.coach-shadow-selected {
+  pointer-events: none;
+}
+.coach-shadow-unselected {
+  z-index: 0;
+}
+.coach {
+  width: 700px;
+  height: 400px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.coach-box-bg {
+  fill: #3681ab;
+}
+.coach-box-bg-unselected {
+  fill: #cbdfe7;
+}
+.click-area {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 0;
+  cursor: pointer;
+}
+.click-area1 {
+  top: 0;
+  cursor: pointer;
+}
+.click-area2 {
+  bottom: 0;
+  cursor: pointer;
+}
+.coach-avatar {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.avatar1 {
+  top: 5%;
+}
+.avatar2 {
+  top: 5%;
+}
+
+.object-fit {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.coach-info {
+  width: 100%;
+  text-align: center;
+  color: white;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.coach-info-unselected {
+  color: black;
+}
+.coach-info1 {
+  bottom: 8%;
+}
+.coach-info2 {
+  bottom: 8%;
+}
+.coach-file {
+  width: 70%;
+  line-height: 27px;
+  color: white;
+  position: absolute;
+  top: 5%;
+  right: 0;
+}
+@media screen and (max-width: 768px) {
+  .coach {
+    width: 99%;
+    height: auto;
+  }
+  .coach-avatar {
+    width: 100px;
+    height: 100px;
+  }
+  .coach-file {
+    line-height: 22px;
+  }
+  .click-area {
+    width: 170px;
+    height: 170px;
+  }
+}
+//------------------------------加入購物車------------------------------//
+.add-cart-fix-wrapper {
+  width: 100%;
+  height: 150px;
+  background: #134865;
+  margin: 50px 0;
+  position: relative;
+}
+.add-cart-fix-wrapper .decoration-skill {
+  position: absolute;
+  left: 0;
+  top: -350px;
+  width: 320px;
+  height: 350px;
+}
+.add-cart-fix-wrapper button {
+  background: $main-red;
+  height: 50px;
+  width: 90px;
+  border: none;
+  box-shadow: 1px 1px 3px black;
+  border-radius: 10px;
+  color: white;
+  letter-spacing: 3px;
+}
+.add-cart-fix-wrapper .button-clicked {
+  transition: 0.8s;
+  background: rgb(190, 190, 190);
+  color: white;
+}
+.fly-to-cart {
+  transition: 0.6s;
+  position: fixed;
+  height: 25px;
+  width: 45px;
+  background: $main-red;
+  border-radius: 10px;
+  z-index: 9999;
+}
+.day-choose-box,
+.number-choose-box {
+  position: relative;
+}
+.add-cart-fix-wrapper input {
+  border-radius: 10px;
+  height: 40px;
+  text-align: center;
+  font-size: 22px;
+}
+// /* 把原本input[type=number]的上下箭頭拿掉 */
+// .add-cart-fix-wrapper input[type="number"]::-webkit-inner-spin-button {
+//   // display:none;
+//   opacity: 1;
+// }
+
+.add-cart-fix-wrapper .icons {
+  color: rgb(122, 122, 122);
+  position: absolute;
+  bottom: 20px;
+  transform: translateY(50%);
+  font-size: 22px;
+  right: 18%;
+}
+.add-cart-fix-wrapper .date {
+  padding-left: 8px;
+  text-align: left;
+  width: 80%;
+}
+.custom-calendar {
+  overflow: hidden;
+  border-radius: 10px;
+  background: white;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-55%);
+  z-index: 999;
+  box-shadow: 1px 1px 3px gray;
+}
+.add-cart-fix-wrapper .number {
+  text-align: center;
+  width: 110px;
+}
+.add-cart-fix-wrapper .content {
+  color: white;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+.add-cart-fix-wrapper .content col {
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 768px) {
+  .add-cart-fix-wrapper .decoration-skill {
+    display: none;
+  }
+  .add-cart-fix-wrapper button {
+    width: 80%;
+    height: 40px;
+  }
+}
+
+//---------------------------(浮動)加入購物車--------------------------//
+.add-cart-float-wrapper {
+  position: fixed;
+  right: -250px;
+  top: 20vh;
+  transition: 0.4s;
+  z-index: 99;
+}
+.add-cart-float-wrapper-show {
+  transition: 0.4s;
+  transform: translate(-250px);
+}
+.add-cart-float-wrapper button {
+  background: $main-red;
+  height: 40px;
+  width: 90px;
+  border: none;
+  box-shadow: 1px 1px 3px $main-text-darkblue;
+  border-radius: 8px;
+  color: $assist-white;
+  letter-spacing: 2px;
+}
+.add-cart-float-wrapper .button-clicked {
+  transition: 0.4s;
+  background: rgb(190, 190, 190);
+  color: $assist-white;
+}
+
+.hover-to-show {
+  cursor: pointer;
+  text-align: center;
+  line-height: 50px;
+  letter-spacing: 5px;
+  height: 150px;
+  width: 50px;
+  background: $main-red;
+  border-radius: 10px 0 0 10px;
+  color: white;
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+}
+.add-cart-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  padding: 5px;
+  width: 250px;
+  line-height: 30px;
+  box-shadow: 3px 3px 3px gray;
+}
+.add-cart-box button {
+  margin: 0 auto;
+}
+.add-cart-box-img {
+  width: 100%;
+  height: 150px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+.add-cart-box-info-date {
+  position: relative;
+}
+.add-cart-box-info input {
+  border-style: gray;
+  height: 28px;
+  letter-spacing: 1px;
+}
+.add-cart-box-info .date-input {
+  width: 50%;
+  text-align: center;
+}
+.add-cart-box-info .number-input {
+  width: 20%;
+  text-align: center;
+}
+.add-cart-box-info input[type="number"]::-webkit-inner-spin-button {
+  opacity: 1;
+}
+.add-cart-box .icons {
+  color: rgb(122, 122, 122);
+  position: absolute;
+  top: 8px;
+  left: 83px;
+}
+@media screen and (max-width: 768px) {
+  .hover-to-show {
+    height: 50px;
+    width: 30px;
+    line-height: 40px;
+  }
+}
+
+//-------------------------------日曆-------------------------------//
+.calendar-wrapper {
+  line-height: 13px;
+  font-size: 12px;
+  width: 250px;
+}
+.calendar-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.calendar-header .change-icons {
+  cursor: pointer;
+  color: rgba(31, 91, 148);
+  font-size: 16px;
+}
+.calendar-wrapper table th {
+  padding: 3px;
+}
+.calendar-wrapper table td {
+  vertical-align: middle;
+  height: 35px;
+  width: 50px;
+  padding: 1px;
+}
+.calendar-dates-box-last {
+  color: rgba(95, 95, 95, 0.8);
+  cursor: default;
+}
+.calendar-dates-box-this {
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+.calendar-dates-box-this-today {
+  font-weight: bolder;
+  cursor: pointer;
+}
+.calendar-dates-box-this-today:hover,
+.calendar-dates-box-this:hover {
+  background: rgba(122, 122, 122, 0.4);
+}
+
+.calendar-wrapper .daily-left {
+  font-size: 12px;
+  span {
+    margin: -8px;
+  }
+}
+.bgLessThan3 {
+  background: rgb(226, 109, 109);
+}
+.bgLessThan0 {
+  color: rgba(95, 95, 95, 0.8);
+  cursor: default;
+  background: rgba(122, 122, 122, 0.4);
+}
+.bgLessThan0:hover {
+  cursor: default;
+  background: rgba(122, 122, 122, 0.4);
+}
+//------------------------------評論------------------------------//
+.comments-wrapper {
+  max-width: 800px;
+  height: 500px;
+  border: 1px solid #134865;
+  border-radius: 15px;
+  margin: 0 auto;
+  // padding: 15px 30px;
+  overflow: scroll;
+  background: rgba(250, 250, 250, 0.8);
+  position: relative;
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  //scroll background
+  &::-webkit-scrollbar-track {
+    // background: $assist-white;
+    background: transparent;
+  }
+  //滑桿本身
+  &::-webkit-scrollbar-thumb {
+    background: $main-text-darkblue;
+    border-radius: 100px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: $main-blue;
+  }
+}
+.no-comments-text {
+  position: absolute;
+  left: 30px;
+  top: 30px;
+}
+.no-comments {
+  font-size: 0;
+  width: 100%;
+  height: 100%;
+  background: center no-repeat
+    url("../../src/components/course/comments/noComments.jpg");
+  background-size: 100%;
+  opacity: 0.5;
+}
+.comment-wrapper {
+  border-bottom: 1px solid rgba(83, 82, 82, 0.5);
+  padding-bottom: 12px;
+  line-height: 40px;
+  position: relative;
+  margin: 15px 30px;
+}
+.comment-box {
+  line-height: 25px;
+}
+.ellipsis {
+  overflow: hidden;
+  /* text-overflow: clip; */
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.comment-avatar-box {
+  height: 40px;
+  margin-bottom: 5px;
+}
+.object-fit-height {
+  height: 100%;
+}
+.star {
+  line-height: 80px;
+}
+.empty-star {
+  color: rgb(207, 207, 207);
+}
+.full-star {
+  color: rgb(243, 208, 54);
+}
+.commit-more {
+  line-height: 16px;
+  cursor: pointer;
+  color: blue;
+}
+@media screen and (max-width: 768px) {
+  .comments-wrapper {
+    width: 99%;
+    height: 300px;
+  }
+}
+
+//------------------------------建議裝備------------------------------//
+.swiper-wrapper {
+  position: relative;
+  width: 680px;
+  height: 310px;
+  margin: 0 auto;
+}
+.swiper-wrapper .decoration-skill {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  left: -120px;
+  top: -78px;
+  opacity: 0.7;
+  transform: rotate(7deg);
+  z-index: -1;
+}
+
+.visibleBox {
+  width: 680px;
+  overflow: hidden;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.swiper-arrow-box:focus {
+  outline: none;
+}
+.swiper-arrow-box {
+  width: 40px;
+  height: 40px;
+  background: $main-red;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 25px;
+  position: absolute;
+  top: calc(50% - 20px);
+}
+.swiper-arrow-box-unavailable {
+  background: #dbaaa3;
+}
+.swiper-arrow-left {
+  left: 0;
+  transform: translateX(-50%);
+}
+.swiper-arrow-right {
+  right: 0;
+  transform: translateX(50%);
+}
+.all-products {
+  width: 2000px;
+  transition: 0.6s;
+  display: flex;
+  flex-shrink: 0;
+}
+.advice-product-box-selected {
+  /* transition: 0.2s; */
+  width: 350px;
+  height: 300px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border: 3px solid rgba(31, 91, 148, 0.5);
+  border-radius: 10px;
+  background: $assist-white;
+  box-shadow: 3px 3px rgb(205, 222, 228), -3px -3px rgb(205, 222, 228),
+    3px -3px rgb(205, 222, 228), -3px 3px rgb(205, 222, 228);
+}
+.advice-product-box {
+  /* transition: 0.4s; */
+  width: 150px;
+  height: 250px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border: 3px solid rgba(31, 91, 148, 0.5);
+  border-radius: 10px;
+  background: $assist-white;
+  box-shadow: 3px 3px rgb(205, 222, 228), -3px -3px rgb(205, 222, 228),
+    3px -3px rgb(205, 222, 228), -3px 3px rgb(205, 222, 228);
+  position: relative;
+}
+.advice-product-box h6 {
+  color: $main-text-darkblue;
+  position: absolute;
+  width: 100%;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.advice-product-intro {
+  color: $main-text-darkblue;
+  width: 170px;
+  height: 80%;
+}
+.advice-product-intro .price {
+  color: $main-red;
+}
+.advice-product-intro .p-normal,
+.advice-product-intro .button-normal {
+  /* transition: 0.4s; */
+  opacity: 0;
+}
+.advice-product-intro .p-selected,
+.advice-product-intro .button-selected {
+  // transition: 0.6s;
+  opacity: 100;
+}
+.course-product-title {
+  font-weight: 800;
+  font-size: 20px;
+}
+.swiper-wrapper .buttons button {
+  margin-right: 5px;
+  width: 78px;
+  font-size: 14px;
+  height: 30px;
+  border: none;
+  box-shadow: 1px 1px 3px black;
+  border-radius: 5px;
+  color: white;
+}
+
+.swiper-wrapper .addCartBtn {
+  background: $main-red;
+}
+.swiper-wrapper .moreBtn {
+  background: $primary;
+}
+.swiper-wrapper .button-clicked {
+  background: rgb(190, 190, 190);
+  font-size: 10px !important;
+  color: white;
+  cursor: default;
+}
+
+.img-box-selected {
+  transition: 0.4s;
+  width: 155px;
+  height: 250px;
+}
+.img-box {
+  /* transition: 0.4s; */
+  position: absolute;
+  bottom: 5%;
+  width: 90%;
+  height: 70%;
+}
+@media screen and (max-width: 768px) {
+  .swiper-wrapper .decoration-skill {
+    display: none;
+  }
+  .swiper-wrapper {
+    width: 100%;
+  }
+}
+
+//------------------------------課程連結------------------------------//
+.courselink-wrapper {
+  width: 60%;
+  margin: 0 auto;
+}
+.single-course-wrap {
+  border-radius: 10px;
+  height: 15rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.single-course-mask {
+  height: 30%;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  color: #134865;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.single-course-name {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+}
+.single-course-description {
+  display: none;
+}
+.single-course-wrap:hover .single-course-mask {
+  background: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  color: #fff;
+}
+.single-course-wrap:hover .single-course-description {
+  display: block;
+}
+@media screen and (max-width: 768px) {
+  .courselink-wrapper {
+    width: 100%;
+  }
+  .single-course-wrap {
+    border-radius: 0;
+    height: 10rem;
+    overflow: hidden;
+    position: relative;
+  }
+  .single-course-mask {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    color: #ffffff;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+//------------------------------課程訂單評價------------------------------//
+.order-comments-wrapper {
+  width: 70%;
+  // padding: 5px;
+  margin: 0 auto;
+  margin-top: 1.5rem;
+  background: $assist-white;
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important ;
+  border-radius: 20px 20px 0 0;
+}
+.member-comments-title {
+  background: $main-blue;
+  border-radius: 20px 20px 0 0;
+  height: 50px;
+  line-height: 50px;
+  color: white;
+  font-size: 22px;
+  width: 100%;
+  margin: 0 auto;
+  font-weight: 600;
+}
+.order-comment-box {
+  margin: 10px 5px;
+  padding: 10px 5px;
+  border-bottom: 3px solid $main-text-darkblue;
+  // border-radius: 5px;
+  // box-shadow: 1px 1px 3px gray;
+  font-size: $font-m;
+}
+.course-comment-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.order-course-info {
+  padding-left: 50px;
+  color: $main-text-darkblue;
+}
+.course-comment-content textarea {
+  background: rgba(250, 250, 250, 0.6);
+  resize: none;
+}
+.course-comment-buttons button,
+.course-comment-buttons button:focus {
+  margin: 10px 5px 5px 5px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  width: 100px;
+  height: 30px;
+  color: white;
+  // box-shadow: 1px 1px 3px gray;
+}
+.course-comment-buttons a {
+  text-decoration: none;
+  color: white;
+}
+.star-hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+.course-comment-buttons button:hover {
+  opacity: 0.8;
+}
+.course-comment-send-button {
+  background: $main-red;
+}
+.course-comment-link-button {
+  background: $main-blue;
+}
